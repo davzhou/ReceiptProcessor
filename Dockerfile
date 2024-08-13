@@ -1,16 +1,13 @@
 #Build stage
 
 FROM gradle:8.8-jdk22 AS builder
-WORKDIR /app
+WORKDIR /opt/app
 COPY . . 
 RUN gradle build
 
 # Package stage
 
 FROM openjdk:22-jdk
-ARG JAR_FILE=ReceiptProcessor-1.0-SNAPSHOT.jar
-ENV APP_HOME=/app
-WORKDIR $APP_HOME
-COPY --from=builder $APP_HOME .
-COPY ${JAR_FILE} app.jar
-ENTRYPOINT ["java","-jar","/app.jar"]
+WORKDIR /opt/app
+COPY --from=builder /opt/app/build/libs/*.jar app.jar
+ENTRYPOINT ["java","-jar","/opt/app/app.jar"]
