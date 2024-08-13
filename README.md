@@ -6,7 +6,7 @@ To run the app on your machine using docker, use the following commands in your 
 
 **Build the docker image**
 
-`docker build --build-arg JAR_FILE=build/libs/\*.jar -t fetch/receipt-processor .`
+`docker build --build-arg JAR_FILE=build/libs/ReceiptProcessor-1.0-SNAPSHOT.jar -t fetch/receipt-processor .`
 
 **Start the container**
 
