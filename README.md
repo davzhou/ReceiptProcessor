@@ -10,7 +10,7 @@ To run the app on your machine using docker, use the following commands in your 
 
 **Start the container**
 
-`docker run -p 8080:8080 fetch/receipt-processor`
+`docker run -p 8080:8080 --rm fetch/receipt-processor`
 
 **Endpoints**
 
